@@ -11,8 +11,10 @@ private:
 public:
 	PhoneBook();
 	~PhoneBook();
-	void		addContact(Contact contact);
-	void		searchContact(Contact contact);
+	void		addContact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds);
+	void		showContact(int index);
+	void 		printContacts();
+	int			getContactCount();
 };
 
 
