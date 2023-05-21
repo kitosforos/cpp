@@ -30,12 +30,15 @@ int main()
 		{
 			std::cout << BLUE << "List of contacts..." << RESET <<std::endl;
 			phoneBook.printContacts();
-			std::cout << "Please enter the index of the contact you would like to view > ";
-			std::getline(std::cin, index);
-			if (index.length() == 1 && index[0] >= '0' && index[0] <= '7' && index[0] - '0' < phoneBook.getContactCount())
-				phoneBook.showContact(std::stoi(index));
-			else
-				std::cout << RED << "Invalid index." << std::endl;
+			if (phoneBook.getContactCount() != 0)
+			{
+				std::cout << "Please enter the index of the contact you would like to view > ";
+				std::getline(std::cin, index);
+				if (index.length() == 1 && index[0] >= '0' && index[0] <= '7' && index[0] - '0' < phoneBook.getContactCount())
+					phoneBook.showContact(std::stoi(index));
+				else
+					std::cout << RED << "Invalid index." << RESET << std::endl;
+			}
 		}
 		else if (command.compare("ADD") == 0)
 		{

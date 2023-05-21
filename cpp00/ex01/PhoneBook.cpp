@@ -29,9 +29,21 @@ void	PhoneBook::showContact(int index) {
 
 void	PhoneBook::printContacts() {
 	int i = 0;
+	int l = 0;
 	int width = 10;
+
+	if (this->contactCount == 0) {
+		std::cout << RED << "No contacts to display." << RESET << std::endl;
+		return ;
+	}
+
+	if (this->contactCount < 8)
+		l = this->contactCount;
+	else
+		l = 8;
+
 	std::cout << "---------------------------------------------" << std::endl;
-	while (i < this->contactCount) {
+	while (i < l) {
 		std::cout << "|" << std::setw(width) << std::right << i;
 		std::cout << "|" << std::setw(width) << std::right << (this->contacts[i].getFirstName().length() > 10 ? this->contacts[i].getFirstName().substr(0, 9) + "." : this->contacts[i].getFirstName());
 		std::cout << "|" << std::setw(width) << std::right << (this->contacts[i].getLastName().length() > 10 ? this->contacts[i].getLastName() .substr(0, 9) + "." : this->contacts[i].getLastName());
